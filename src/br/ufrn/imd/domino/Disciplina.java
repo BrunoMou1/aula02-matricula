@@ -1,5 +1,7 @@
 package br.ufrn.imd.domino;
 
+import java.util.Objects;
+
 public class Disciplina {
 
 	private int id;
@@ -34,6 +36,22 @@ public class Disciplina {
 	}
 	@Override
 	public String toString() {
-		return descricao +"- curso: "+ curso.getDescricao();
+		return "Id: "+ id + " - " + descricao +"- curso: "+ curso.getDescricao();
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Disciplina other = (Disciplina) obj;
+		return id == other.id;
+	}
+	
 }

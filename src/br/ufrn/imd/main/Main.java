@@ -1,6 +1,5 @@
 package br.ufrn.imd.main;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import br.ufrn.imd.domino.Aluno;
@@ -28,16 +27,35 @@ public class Main {
 		jose.setCurso(bti);
 		
 		Disciplina imd0040 = new Disciplina();
+		imd0040.setId(1);
 		imd0040.setCurso(bti);
 		imd0040.setDescricao("Linguagens de programação II");
 		
-		jose.setDisciplinas(new ArrayList<Disciplina>());
-		jose.getDisciplinas().add(imd0040);
+		jose.solicitarMatricula(imd0040);
 		jose.setIra(9.6);
+		
+		Disciplina imd0404 = new Disciplina();
+		imd0404.setId(2);
+		imd0404.setCurso(bti);
+		imd0404.setDescricao("Web I");
+		
+		jose.solicitarMatricula(imd0404);
 		
 		System.out.println(jose);
 		
-		for (Disciplina d : jose.getDisciplinas()) {
+		
+		for (Disciplina d : jose.listarDisciplinas()) {
+			System.out.println(d);
+		}
+		
+		Disciplina imd0404c = new Disciplina();
+		imd0404c.setId(2);
+		imd0404c.setCurso(bti);
+		imd0404c.setDescricao("Web I");
+		
+		jose.trancarMatricula(imd0404c);
+		
+		for (Disciplina d : jose.listarDisciplinas()) {
 			System.out.println(d);
 		}
 		
